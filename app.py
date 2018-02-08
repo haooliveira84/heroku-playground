@@ -31,13 +31,12 @@ def mac_consult(macaddr):
 		req_response = requests.get(url+macaddr)
 	except:
 		response = json.dumps({'status':'error','message':'Error'})
-	finally:
-		if req_response == None:
-			status_code=404
-			response=json.dumps({'code':status_code,'status':'error','message':'MAC Not Found!'})
-		else:
-			status_code=200
-			response = req_response
+	if req_response == None:
+		status_code=404
+		response=json.dumps({'code':status_code,'status':'error','message':'MAC Not Found!'})
+	else:
+		status_code=200
+		response = req_response
 	return json_view(response, status_code)
 
 def json_view(response, status_code):
@@ -49,5 +48,5 @@ def json_view(response, status_code):
 	return response
 
 if __name__ == "__main__":
-	
+
 	app.run(debug=True, use_reloader=True)
