@@ -15,12 +15,12 @@ def macaddr(macaddr=None):
 	if flask.request.method == 'POST':
 		json_dict = flask.request.get_json()
 		if flask.request.headers.get('macaddr'):
-				macaddr = flask.request.headers.get('macaddr')
+			macaddr = flask.request.headers.get('macaddr')
 		else:
-				macaddr = json_dict['macaddr']
+			macaddr = json_dict['macaddr']
 	else:
 		if flask.request.args.get('macaddr'):
-				macaddr = flask.request.args.get('macaddr')
+			macaddr = flask.request.args.get('macaddr')
 	response = mac_consult(macaddr)
 	return response
 
