@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+
 import requests
 import flask
 
@@ -48,4 +49,5 @@ def json_view(response, status_code):
 	return response
 
 if __name__ == "__main__":
+	
 	app.run(debug=True, use_reloader=True)
